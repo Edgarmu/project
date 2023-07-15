@@ -2,13 +2,18 @@ package main
 
 import (
 	"log"
+	"todo/pkg/handler"
+	"todo/pkg/repository"
+	"todo/pkg/service"
 
 	"github.com/zhashkevych/todo-app"
 	"github.com/zhashkevych/todo-app/pkg/handler"
 )
 
 func main() {
-	handlers := new(handler.Handler)
+	repos := repository.NewRepository()
+	services := service.NewService(repos)
+	handlers := handler.NewHandler(services)
 
 	srv := new(todo.Server)
 	if err := srv.Run("8000", handlers.InitRoutes()); err != nil {
