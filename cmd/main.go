@@ -7,7 +7,6 @@ import (
 	"todo/pkg/service"
 
 	"github.com/zhashkevych/todo-app"
-	"github.com/zhashkevych/todo-app/pkg/handler"
 )
 
 func main() {
